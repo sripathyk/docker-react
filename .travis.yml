@@ -1,0 +1,9 @@
+sudo: require
+services:
+  - docker
+
+before_install:
+  - docker build -t sripathyk/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run sripathyk/docker-react npm run test -- --coverage
